@@ -20,11 +20,21 @@ module.exports = buildSchema(`
         userEmail: String!
         userCountryCode: String!
         address: Address!
+        lines: [Line!]!
+    }
+
+    type TotalAmount{
+        amount: String!
+        currencyCode: String!
     }
 
     type Cost{
-        totalAmount: String!
-        currencyCode: String!
+        totalAmount: TotalAmount!
+    }
+
+    input Line{
+        quantity: Int
+        merchandiseId: String
     }
 
     type Cart{
